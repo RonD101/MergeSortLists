@@ -73,7 +73,6 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
         list2 = list2->next;
     }
     *merge_out = merge_out_tmp;
-
     return SUCCESS;
 }
 
