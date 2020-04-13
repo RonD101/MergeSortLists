@@ -16,11 +16,13 @@ int main() {
     Node list3 = NULL;//malloc(sizeof(Node));
 
     int x = mergeSortedLists(list,list2,&list3);
-
+    Node temp;
     printf("%d\n",x);
     while ((list3)){
         printf("%d ",list3->x);
+        temp = list3;
         list3 = list3->next;
+        free(temp);
     }
    // printf("\n%d-%d-%d-%d",list3->x,list3->next->x,list3->next->next->x,list3->next->next->next->x);
     /*printf("%d %d", list->x, list->next->x);
@@ -36,6 +38,5 @@ int main() {
     free(list);
     free(list2->next);
     free(list2);
-    free(list3);
     return 0;
 }
