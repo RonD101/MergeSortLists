@@ -8,20 +8,33 @@
 #include <stdlib.h>
 
 ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
-
+    if(!list1||!list2)
+        return EMPTY_LIST;
+    if(!(*merge_out))
+        return NULL_ARGUMENT;
+    if(!(isListSorted(list1)) || !(isListSorted(list2)))
+        return UNSORTED_LIST;
 
     while (list1 != NULL && list2 != NULL) {
 
         if (list1->x < list2->x) {
             (*merge_out)->x = list1->x;
-            (*merge_out)->next = malloc(sizeof(merge_out);
-            /////null
+            (*merge_out)->next = malloc(sizeof(merge_out));
+            if((*merge_out)->next == NULL){
+                freeMemory(*merge_out);
+                *merge_out = NULL;
+                return MEMORY_ERROR;
+            }
             *merge_out = (*merge_out)->next;
             list1 = list1->next;
         } else {
             (*merge_out)->x = list2->x;
-            (*merge_out)->next = malloc(sizeof(merge_out);
-            /////null
+            (*merge_out)->next = malloc(sizeof(merge_out));
+            if((*merge_out)->next == NULL){
+                freeMemory(*merge_out);
+                *merge_out = NULL;
+                return MEMORY_ERROR;
+            }
             *merge_out = (*merge_out)->next;
             list2 = list2->next;
         }
@@ -29,18 +42,26 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
     while (list1) {
         (*merge_out)->x = list1->x;
         (*merge_out)->next = malloc(sizeof(merge_out));
-        /////null
+        if((*merge_out)->next == NULL){
+            freeMemory(*merge_out);
+            *merge_out = NULL;
+            return MEMORY_ERROR;
+        }
         *merge_out = (*merge_out)->next;
         list1 = list1->next;
     }
     while (list2) {
         (*merge_out)->x = list2->x;
         (*merge_out)->next = malloc(sizeof(merge_out));
-        /////null
+        if((*merge_out)->next == NULL){
+            freeMemory(*merge_out);
+            *merge_out = NULL;
+            return MEMORY_ERROR;
+        }
         *merge_out = (*merge_out)->next;
         list2 = list2->next;
     }
-    return MEMORY_ERROR;
+    return SUCCESS;
 }
 
 int getListLength(Node list)
@@ -51,8 +72,7 @@ int getListLength(Node list)
         counter++;
         list = list->next;
     }
-    if(counter == 0)
-        return counter;
+    return counter;
 }
 
 
@@ -67,3 +87,10 @@ bool isListSorted(Node list)
     return true;
 }
 
+static void freeMemory(Node list){
+    while (!list){
+        Node tmp = list->next;
+        free(list);
+        list = tmp;
+    }
+}
