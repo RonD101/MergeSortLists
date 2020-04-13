@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/MergeList.c" "/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/cmake-build-debug/CMakeFiles/MergeSortLists.dir/MergeList.c.o"
   "/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/main.c" "/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/cmake-build-debug/CMakeFiles/MergeSortLists.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

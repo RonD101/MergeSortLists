@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/MergeList.c">
+			<Option target="MergeSortLists"/>
+		</Unit>
 		<Unit filename="/Users/rond/Desktop/רון/טכניון/מבוא לתכנות מערכות/hw1/MergeSortLists/MergeList.h">
 			<Option target="MergeSortLists"/>
 		</Unit>

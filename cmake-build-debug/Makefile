@@ -123,6 +123,33 @@ MergeSortLists/fast:
 	$(MAKE) -f CMakeFiles/MergeSortLists.dir/build.make CMakeFiles/MergeSortLists.dir/build
 .PHONY : MergeSortLists/fast
 
+MergeList.o: MergeList.c.o
+
+.PHONY : MergeList.o
+
+# target to build an object file
+MergeList.c.o:
+	$(MAKE) -f CMakeFiles/MergeSortLists.dir/build.make CMakeFiles/MergeSortLists.dir/MergeList.c.o
+.PHONY : MergeList.c.o
+
+MergeList.i: MergeList.c.i
+
+.PHONY : MergeList.i
+
+# target to preprocess a source file
+MergeList.c.i:
+	$(MAKE) -f CMakeFiles/MergeSortLists.dir/build.make CMakeFiles/MergeSortLists.dir/MergeList.c.i
+.PHONY : MergeList.c.i
+
+MergeList.s: MergeList.c.s
+
+.PHONY : MergeList.s
+
+# target to generate assembly for a file
+MergeList.c.s:
+	$(MAKE) -f CMakeFiles/MergeSortLists.dir/build.make CMakeFiles/MergeSortLists.dir/MergeList.c.s
+.PHONY : MergeList.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... MergeSortLists"
+	@echo "... MergeList.o"
+	@echo "... MergeList.i"
+	@echo "... MergeList.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

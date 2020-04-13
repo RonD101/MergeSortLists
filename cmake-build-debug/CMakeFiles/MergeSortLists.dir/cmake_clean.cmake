@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MergeSortLists.dir/MergeList.c.o"
   "CMakeFiles/MergeSortLists.dir/main.c.o"
   "MergeSortLists"
   "MergeSortLists.pdb"

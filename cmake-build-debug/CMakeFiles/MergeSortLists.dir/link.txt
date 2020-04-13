@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/MergeSortLists.dir/main.c.o  -o MergeSortLists 
+/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/MergeSortLists.dir/main.c.o CMakeFiles/MergeSortLists.dir/MergeList.c.o  -o MergeSortLists 
