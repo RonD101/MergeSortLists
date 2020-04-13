@@ -35,7 +35,7 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
     }
     while (list2) {
         (*merge_out)->x = list2->x;
-        (*merge_out)->next = malloc(sizeof(*merge_out));
+        (*merge_out)->next = malloc(sizeof(merge_out));
         /////null
         *merge_out = (*merge_out)->next;
         list2 = list2->next;
