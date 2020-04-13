@@ -14,7 +14,6 @@ int main() {
     list2->next->x = 15;
     list2->next->next = NULL;
     Node list3 = NULL;//malloc(sizeof(Node));
-
     int x = mergeSortedLists(list,list2,&list3);
     Node temp;
     printf("%d\n",x);

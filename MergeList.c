@@ -8,20 +8,22 @@
 #include <stdlib.h>
 
 ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
-    *merge_out = malloc(sizeof(Node));/////
-    Node merge_out_tmp = *merge_out;
-    (*merge_out)->next = NULL;
-    if(!list1||!list2)
-        return EMPTY_LIST;
-    if(!(*merge_out))
+    if(!(merge_out)|| !list1||!list2)
         return NULL_ARGUMENT;
+    if(!getListLength(list1)|| !getListLength(list2))
+        return EMPTY_LIST;
     if(!(isListSorted(list1)) || !(isListSorted(list2)))
         return UNSORTED_LIST;
-    //bool first_run = true;
+
+    *merge_out = malloc(sizeof(Node));
+    if(*merge_out == NULL){
+        free(*merge_out);
+        return MEMORY_ERROR;
+    }
+    Node merge_out_tmp = *merge_out;
+    (*merge_out)->next = NULL;
+
     while (list1 != NULL && list2 != NULL) {
-       // if(!first_run)
-         //   (*merge_out)->next = malloc(sizeof(merge_out));
-      //  first_run =false;
         if (list1->x < list2->x) {
             (*merge_out)->x = list1->x;
             (*merge_out)->next = malloc(sizeof(merge_out));
@@ -31,7 +33,6 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
                 return MEMORY_ERROR;
             }
             *merge_out = (*merge_out)->next;
-            //(*merge_out)->next = NULL;///////////
             list1 = list1->next;
         } else {
             (*merge_out)->x = list2->x;
@@ -42,32 +43,33 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
                 return MEMORY_ERROR;
             }
             *merge_out = (*merge_out)->next;
-            //(*merge_out)->next = NULL;///////////
             list2 = list2->next;
         }
     }
     while (list1) {
         (*merge_out)->x = list1->x;
-        (*merge_out)->next = malloc(sizeof(merge_out));
-        if((*merge_out)->next == NULL){
-            freeMemory(*merge_out);
-            *merge_out = NULL;
-            return MEMORY_ERROR;
+        if(list1->next !=NULL) {//making sure we don't make an extra node
+            (*merge_out)->next = malloc(sizeof(merge_out));
+            if ((*merge_out)->next == NULL) {
+                freeMemory(*merge_out);
+                *merge_out = NULL;
+                return MEMORY_ERROR;
+            }
         }
         *merge_out = (*merge_out)->next;
-        //(*merge_out)->next = NULL;///////////
         list1 = list1->next;
     }
     while (list2) {
         (*merge_out)->x = list2->x;
-        (*merge_out)->next = malloc(sizeof(merge_out));
-        if((*merge_out)->next == NULL){
-            freeMemory(*merge_out);
-            *merge_out = NULL;
-            return MEMORY_ERROR;
+        if(list2->next != NULL) {//making sure we don't make an extra node
+            (*merge_out)->next = malloc(sizeof(merge_out));
+            if ((*merge_out)->next == NULL) {
+                freeMemory(*merge_out);
+                *merge_out = NULL;
+                return MEMORY_ERROR;
+            }
         }
         *merge_out = (*merge_out)->next;
-        //(*merge_out)->next = NULL;///////////
         list2 = list2->next;
     }
     *merge_out = merge_out_tmp;
@@ -100,7 +102,7 @@ bool isListSorted(Node list)
     return true;
 }
 
-static void freeMemory(Node list){
+void freeMemory(Node list){
     while (!list){
         Node tmp = list->next;
         free(list);

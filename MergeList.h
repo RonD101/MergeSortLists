@@ -16,5 +16,5 @@ typedef enum { SUCCESS=0,MEMORY_ERROR, EMPTY_LIST , UNSORTED_LIST, NULL_ARGUMENT
 int getListLength(Node list);
 bool isListSorted(Node list);
 ErrorCode mergeSortedLists(Node list1, Node list2, Node *merged_out);
-static void freeMemory(Node list);
+void freeMemory(Node list);
 #endif //MERGESORTEDLIST_MERGELIST_H
