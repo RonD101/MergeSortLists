@@ -14,30 +14,30 @@ ErrorCode mergeSortedLists(Node list1,Node list2,Node *merge_out) {
 
         if (list1->x < list2->x) {
             (*merge_out)->x = list1->x;
-            (*merge_out)->next = malloc(sizeof((*merge_out)->next));
+            (*merge_out)->next = malloc(sizeof(merge_out);
             /////null
-            merge_out = (*merge_out)->next;
+            *merge_out = (*merge_out)->next;
             list1 = list1->next;
         } else {
             (*merge_out)->x = list2->x;
-            (*merge_out)->next = malloc(sizeof((*merge_out)->next));
+            (*merge_out)->next = malloc(sizeof(merge_out);
             /////null
-            merge_out = (*merge_out)->next;
+            *merge_out = (*merge_out)->next;
             list2 = list2->next;
         }
     }
     while (list1) {
         (*merge_out)->x = list1->x;
-        (*merge_out)->next = malloc(sizeof((*merge_out)->next));
+        (*merge_out)->next = malloc(sizeof(merge_out));
         /////null
-        merge_out = (*merge_out)->next;
+        *merge_out = (*merge_out)->next;
         list1 = list1->next;
     }
     while (list2) {
         (*merge_out)->x = list2->x;
-        (*merge_out)->next = malloc(sizeof((*merge_out)->next));
+        (*merge_out)->next = malloc(sizeof(*merge_out));
         /////null
-        merge_out = (*merge_out)->next;
+        *merge_out = (*merge_out)->next;
         list2 = list2->next;
     }
     return MEMORY_ERROR;
